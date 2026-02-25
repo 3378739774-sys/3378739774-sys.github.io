@@ -30,10 +30,8 @@
             box-shadow: 0 25px 50px rgba(90, 74, 154, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.7);
             margin: 16px 0;
-            transition: opacity 0.3s ease;
         }
 
-        /* 首页样式 */
         .home-title {
             font-size: 34px;
             font-weight: 700;
@@ -66,18 +64,10 @@
             box-shadow: 0 10px 20px rgba(90, 74, 154, 0.2);
             margin-bottom: 40px;
             text-align: center;
-            letter-spacing: 0.3px;
-        }
-
-        .home-btn:hover {
-            background: #6b5bab;
-            transform: translateY(-2px);
-            box-shadow: 0 15px 25px rgba(90, 74, 154, 0.25);
         }
 
         .home-btn:active {
-            transform: translateY(0);
-            box-shadow: 0 5px 10px rgba(90, 74, 154, 0.2);
+            transform: scale(0.97);
         }
 
         .features-grid {
@@ -93,7 +83,6 @@
             padding: 20px 12px;
             text-align: center;
             border: 1px solid #e4dcff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
         }
 
         .feature-icon {
@@ -111,7 +100,6 @@
         .feature-text {
             font-size: 14px;
             color: #5f5592;
-            font-weight: 500;
         }
 
         .section-title {
@@ -119,7 +107,6 @@
             font-weight: 600;
             color: #1a142b;
             margin-bottom: 20px;
-            letter-spacing: -0.3px;
         }
 
         .dimension-card {
@@ -128,15 +115,13 @@
             padding: 24px 20px;
             margin-bottom: 16px;
             border: 1px solid #e4dcff;
-            box-shadow: 0 8px 20px rgba(90, 74, 154, 0.05);
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
-        .dimension-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(90, 74, 154, 0.15);
-            border-color: #b4a6f0;
+        .dimension-card:active {
+            transform: scale(1.02);
+            background: #f8f2ff;
         }
 
         .dimension-title {
@@ -151,7 +136,6 @@
             font-weight: 600;
             color: #8f7ee0;
             margin-bottom: 16px;
-            letter-spacing: 0.3px;
         }
 
         .dimension-desc {
@@ -165,16 +149,8 @@
             background: white;
             color: #5a4a9a;
             border: 2px solid #5a4a9a;
-            box-shadow: none;
         }
 
-        .bottom-btn:hover {
-            background: #f5f0ff;
-            color: #5a4a9a;
-            border-color: #5a4a9a;
-        }
-
-        /* 测试页样式 */
         .test-header {
             display: flex;
             align-items: center;
@@ -215,6 +191,8 @@
             color: #1a142b;
             margin-bottom: 36px;
             min-height: 120px;
+            padding-left: 12px;
+            border-left: 4px solid #b69efc;
         }
 
         .options {
@@ -232,21 +210,18 @@
             font-size: 17px;
             color: #2a2438;
             text-align: left;
-            transition: all 0.15s ease;
+            transition: all 0.1s ease;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         .option-item:active {
-            transform: scale(1.01);
+            transform: scale(1.02);
             background: #f8f4ff;
-            border-color: #b4a6f0;
         }
 
         .option-item.selected {
             background: #f0ebff;
             border-color: #5a4a9a;
-            color: #1a142b;
             font-weight: 500;
         }
 
@@ -266,7 +241,6 @@
             color: #5a4a9a;
             cursor: pointer;
             transition: all 0.15s;
-            box-shadow: 0 4px 12px rgba(90, 74, 154, 0.1);
             min-width: 120px;
             text-align: center;
         }
@@ -279,11 +253,8 @@
         .nav-btn:disabled {
             opacity: 0.3;
             pointer-events: none;
-            background: #f0f0f0;
-            border-color: #d0d0d0;
         }
 
-        /* 加载动画 */
         .loader-overlay {
             position: fixed;
             top: 0;
@@ -320,7 +291,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* 结果页样式 */
         .result-score {
             font-size: 72px;
             font-weight: 800;
@@ -328,7 +298,6 @@
             text-align: center;
             margin: 20px 0 8px;
             line-height: 1;
-            letter-spacing: -2px;
         }
 
         .judgment-box {
@@ -366,9 +335,9 @@
             transition: all 0.2s;
         }
 
-        .restart-btn:hover {
+        .restart-btn:active {
             background: #f5f0ff;
-            transform: translateY(-2px);
+            transform: scale(0.97);
         }
 
         .hidden {
@@ -385,104 +354,49 @@
     </style>
 </head>
 <body>
-    <!-- 全屏加载动画（初始隐藏） -->
     <div class="loader-overlay" id="loaderOverlay">
         <div class="loader"></div>
     </div>
 
     <div class="container" id="app">
-        <!-- 首页 -->
         <div id="homeSection">
             <div class="home-title">测测你身边的NPD倾向</div>
             <div class="home-subtitle">根据30道行为描述，帮你看见关系中的真相</div>
-            
             <div class="home-btn" id="homeStartBtn1">开始测试</div>
 
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">⌛</div>
-                    <div class="feature-number">6-8</div>
-                    <div class="feature-text">分钟完成</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📝</div>
-                    <div class="feature-number">30</div>
-                    <div class="feature-text">道题目</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔗</div>
-                    <div class="feature-number">1</div>
-                    <div class="feature-text">一次性链接</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <div class="feature-number">100%</div>
-                    <div class="feature-text">隐私保护</div>
-                </div>
+                <div class="feature-item"><div class="feature-icon">⌛</div><div class="feature-number">6-8</div><div class="feature-text">分钟完成</div></div>
+                <div class="feature-item"><div class="feature-icon">📝</div><div class="feature-number">30</div><div class="feature-text">道题目</div></div>
+                <div class="feature-item"><div class="feature-icon">🔗</div><div class="feature-number">1</div><div class="feature-text">一次性链接</div></div>
+                <div class="feature-item"><div class="feature-icon">🛡️</div><div class="feature-number">100%</div><div class="feature-text">隐私保护</div></div>
             </div>
 
             <div class="section-title">三大核心维度</div>
 
-            <!-- 三个维度卡片（带题量） -->
-            <div class="dimension-card" id="dim1">
-                <div class="dimension-title">夸大自我型（共12题）</div>
-                <div class="dimension-keywords">特权 · 自我 · 夸大</div>
-                <div class="dimension-desc">
-                    NPD的核心：特权感和自我夸大。<br>
-                    TA的世界里，规则为别人而设，自己永远例外。<br>
-                    你和TA之间，永远是你让步。
-                </div>
-            </div>
-
-            <div class="dimension-card" id="dim2">
-                <div class="dimension-title">缺乏共情型（共8题）</div>
-                <div class="dimension-keywords">感受 · 付出 · 索取</div>
-                <div class="dimension-desc">
-                    NPD的盲区：无法真正看见他人的感受。<br>
-                    你的付出是理所应当，TA的需求才是第一位。<br>
-                    你需要时TA不在，TA需要时你必须来。
-                </div>
-            </div>
-
-            <div class="dimension-card" id="dim3">
-                <div class="dimension-title">嫉妒傲慢型（共10题）</div>
-                <div class="dimension-keywords">嫉妒 · 贬低 · 防御</div>
-                <div class="dimension-desc">
-                    NPD的面具：用贬低别人来维持优越感。<br>
-                    你永远吵不赢TA，因为错的从来不是你，是事实本身。<br>
-                    你的成就是运气，TA的失败是别人的错。
-                </div>
-            </div>
+            <div class="dimension-card"><div class="dimension-title">夸大自我型（共12题）</div><div class="dimension-keywords">特权 · 自我 · 夸大</div><div class="dimension-desc">NPD的核心：特权感和自我夸大。<br>TA的世界里，规则为别人而设，自己永远例外。<br>你和TA之间，永远是你让步。</div></div>
+            <div class="dimension-card"><div class="dimension-title">缺乏共情型（共8题）</div><div class="dimension-keywords">感受 · 付出 · 索取</div><div class="dimension-desc">NPD的盲区：无法真正看见他人的感受。<br>你的付出是理所应当，TA的需求才是第一位。<br>你需要时TA不在，TA需要时你必须来。</div></div>
+            <div class="dimension-card"><div class="dimension-title">嫉妒傲慢型（共10题）</div><div class="dimension-keywords">嫉妒 · 贬低 · 防御</div><div class="dimension-desc">NPD的面具：用贬低别人来维持优越感。<br>你永远吵不赢TA，因为错的从来不是你，是事实本身。<br>你的成就是运气，TA的失败是别人的错。</div></div>
 
             <div class="home-btn bottom-btn" id="homeStartBtn2">开始测试</div>
             <div class="footnote">你的感受是真实的，你的判断是可信的</div>
         </div>
 
-        <!-- 测试页 (初始隐藏) -->
         <div id="testSection" class="hidden">
             <div class="test-header">
                 <span class="question-number" id="questionNumber">1/30</span>
-                <div class="progress-bar-bg">
-                    <div class="progress-fill" id="progressFill" style="width: 3.33%;"></div>
-                </div>
+                <div class="progress-bar-bg"><div class="progress-fill" id="progressFill" style="width: 3.33%;"></div></div>
             </div>
             <div class="question-text" id="questionText">加载中...</div>
             <div class="options" id="optionsContainer"></div>
             <div class="nav-buttons">
                 <button class="nav-btn" id="prevBtn" disabled>上一题</button>
-                <button class="nav-btn" id="nextBtn" disabled>下一题</button>
+                <button class="nav-btn" id="nextBtn">下一题</button>
             </div>
         </div>
 
-        <!-- 结果页 (初始隐藏) -->
         <div id="resultSection" class="hidden">
             <div class="result-score" id="totalScore">0</div>
-            
-            <div class="judgment-box" id="judgmentBox">
-                <div class="judgment-title" id="judgmentTitle"></div>
-                <div class="judgment-text" id="judgmentText"></div>
-            </div>
-
+            <div class="judgment-box"><div class="judgment-title" id="judgmentTitle"></div><div class="judgment-text" id="judgmentText"></div></div>
             <button class="restart-btn" id="restartBtn">重新测试</button>
             <div class="footnote">你的感受是真实的，你的判断是可信的</div>
         </div>
@@ -490,7 +404,6 @@
 
     <script>
         (function() {
-            // 30道题目
             const questions = [
                 "TA总想控制或影响身边的人，让所有人都听TA的话",
                 "TA从来不觉得问题出在自己身上，都是别人的错",
@@ -524,24 +437,16 @@
                 "TA总觉得别人在模仿TA，连穿衣服、说话方式都在学TA"
             ];
 
-            const options = [
-                "从来没发生过",
-                "发生过一两次",
-                "时不时会发生，有点不舒服",
-                "经常发生，挺难受的",
-                "总是这样，完全受不了"
-            ];
+            const options = ["从来没发生过","发生过一两次","时不时会发生，有点不舒服","经常发生，挺难受的","总是这样，完全受不了"];
             const optionScores = [1,2,3,4,5];
 
             let currentIndex = 0;
             let answers = new Array(30).fill(null);
 
-            // DOM
             const homeSection = document.getElementById('homeSection');
             const testSection = document.getElementById('testSection');
             const resultSection = document.getElementById('resultSection');
             const loaderOverlay = document.getElementById('loaderOverlay');
-            const appContainer = document.getElementById('app');
 
             const homeStart1 = document.getElementById('homeStartBtn1');
             const homeStart2 = document.getElementById('homeStartBtn2');
@@ -558,19 +463,15 @@
             const judgmentTitle = document.getElementById('judgmentTitle');
             const judgmentText = document.getElementById('judgmentText');
 
-            // 进入测试页
             function goToTest() {
                 homeSection.classList.add('hidden');
                 testSection.classList.remove('hidden');
                 renderQuestion();
             }
 
-            // 渲染当前题目
             function renderQuestion() {
-                // 更新题号
                 questionNumber.innerText = `${currentIndex+1}/30`;
-                // 更新进度条
-                let percent = ((currentIndex) / 30) * 100;
+                let percent = (currentIndex / 30) * 100;
                 if (currentIndex === 0) percent = 3.33;
                 progressFill.style.width = `${percent}%`;
 
@@ -583,7 +484,6 @@
                 }
                 optionsContainer.innerHTML = html;
 
-                // 绑定选项点击
                 document.querySelectorAll('.option-item').forEach(opt => {
                     opt.addEventListener('click', function(e) {
                         const idx = parseInt(e.currentTarget.dataset.optIndex, 10);
@@ -596,22 +496,23 @@
                                 currentIndex++;
                                 renderQuestion();
                             }, 150);
+                        } else {
+                            // 最后一题选完，按钮变为“查看结果”
+                            nextBtn.innerText = '查看结果';
                         }
                     });
                 });
 
-                // 按钮状态
                 prevBtn.disabled = (currentIndex === 0);
+                
+                // 设置下一题按钮文字
                 if (currentIndex === 29) {
-                    nextBtn.disabled = false;
                     nextBtn.innerText = '查看结果';
                 } else {
-                    nextBtn.disabled = true;
                     nextBtn.innerText = '下一题';
                 }
             }
 
-            // 上一题
             function handlePrev() {
                 if (currentIndex > 0) {
                     currentIndex--;
@@ -619,55 +520,59 @@
                 }
             }
 
-            // 查看结果（带加载动画和淡入）
             function handleNext() {
                 if (currentIndex === 29) {
+                    // 最后一题：必须选了才能查看结果
                     if (answers[29] === null) {
                         alert('请先选择最后一题');
                         return;
                     }
-
-                    // 显示加载动画
-                    loaderOverlay.classList.add('show');
-                    
-                    // 0.5秒后隐藏测试页，显示结果页，同时淡入
-                    setTimeout(() => {
-                        // 隐藏测试页，显示结果页
-                        testSection.classList.add('hidden');
-                        resultSection.classList.remove('hidden');
-                        
-                        // 计算结果
-                        let total = 0;
-                        for (let i = 0; i < 30; i++) {
-                            total += optionScores[answers[i]];
-                        }
-                        totalScoreEl.innerText = total;
-
-                        // 总体判断
-                        let title = '', text = '';
-                        if (total <= 60) {
-                            title = '30-60分 · 低风险';
-                            text = '你身边的人，大概率没有NPD倾向。\n\nTA可能偶尔会让你觉得有点自我、不太体贴，但整体上是一个能沟通、会反思的人。你们的关系可能有起伏，但不会让你长期感到消耗。\n\n如果你偶尔觉得被忽视，可以试着表达出来——一个没有NPD倾向的人，是能够听见你的。';
-                        } else if (total <= 90) {
-                            title = '61-90分 · 有自恋倾向';
-                            text = 'TA身上有一些自恋型人格的特征，但还没到人格障碍的程度。\n\n和TA相处时，你可能经常需要让步、照顾TA的感受、听TA讲自己的事。TA不太擅长关心别人，但如果你明确提出需求，TA偶尔也能接住。\n\n这段关系需要你付出更多耐心，但还不至于让你彻底耗尽。';
-                        } else if (total <= 120) {
-                            title = '91-120分 · 明显NPD特征';
-                            text = 'TA的行为模式已经比较符合NPD的典型特征。\n\n在这段关系里，你可能经常有这样的感受：你在付出，TA在索取；你在反思，TA在指责；你在照顾TA的感受，TA从来不顾你的。\n\n这不是你的问题，是这段关系让你习惯了压抑自己。如果你现在觉得累、委屈、甚至有点麻木——你的感受是真实的。';
-                        } else {
-                            title = '121-150分 · 高度符合NPD特征';
-                            text = '你身边的人，很可能是一个典型的自恋型人格障碍者。\n\n这段关系的真相可能是：你在扮演照顾者，TA在扮演索取者；你在理解TA，TA从未理解过你；你在为TA找理由，TA在为自己找借口。\n\n如果你暂时还不能离开，可以先做一件事：在心里划一条很小的边界，比如“这个话题我不想继续了”。不用说出来，先在自己的心里划清楚。';
-                        }
-                        judgmentTitle.innerText = title;
-                        judgmentText.innerText = text;
-
-                        // 隐藏加载动画
-                        loaderOverlay.classList.remove('show');
-                    }, 500);
+                    showResultWithLoader();
+                } else {
+                    // 非最后一题：必须选了才能去下一题
+                    if (answers[currentIndex] === null) {
+                        alert('请先选择一个选项');
+                        return;
+                    }
+                    currentIndex++;
+                    renderQuestion();
                 }
             }
 
-            // 重新测试
+            function showResultWithLoader() {
+                loaderOverlay.classList.add('show');
+                
+                setTimeout(() => {
+                    testSection.classList.add('hidden');
+                    resultSection.classList.remove('hidden');
+
+                    let total = 0;
+                    for (let i = 0; i < 30; i++) {
+                        total += optionScores[answers[i]];
+                    }
+                    totalScoreEl.innerText = total;
+
+                    let title = '', text = '';
+                    if (total <= 60) {
+                        title = '30-60分 · 低风险';
+                        text = '你身边的人，大概率没有NPD倾向。\n\nTA可能偶尔会让你觉得有点自我、不太体贴，但整体上是一个能沟通、会反思的人。你们的关系可能有起伏，但不会让你长期感到消耗。\n\n如果你偶尔觉得被忽视，可以试着表达出来——一个没有NPD倾向的人，是能够听见你的。';
+                    } else if (total <= 90) {
+                        title = '61-90分 · 有自恋倾向';
+                        text = 'TA身上有一些自恋型人格的特征，但还没到人格障碍的程度。\n\n和TA相处时，你可能经常需要让步、照顾TA的感受、听TA讲自己的事。TA不太擅长关心别人，但如果你明确提出需求，TA偶尔也能接住。\n\n这段关系需要你付出更多耐心，但还不至于让你彻底耗尽。';
+                    } else if (total <= 120) {
+                        title = '91-120分 · 明显NPD特征';
+                        text = 'TA的行为模式已经比较符合NPD的典型特征。\n\n在这段关系里，你可能经常有这样的感受：你在付出，TA在索取；你在反思，TA在指责；你在照顾TA的感受，TA从来不顾你的。\n\n这不是你的问题，是这段关系让你习惯了压抑自己。如果你现在觉得累、委屈、甚至有点麻木——你的感受是真实的。';
+                    } else {
+                        title = '121-150分 · 高度符合NPD特征';
+                        text = '你身边的人，很可能是一个典型的自恋型人格障碍者。\n\n这段关系的真相可能是：你在扮演照顾者，TA在扮演索取者；你在理解TA，TA从未理解过你；你在为TA找理由，TA在为自己找借口。\n\n如果你暂时还不能离开，可以先做一件事：在心里划一条很小的边界，比如“这个话题我不想继续了”。不用说出来，先在自己的心里划清楚。';
+                    }
+                    judgmentTitle.innerText = title;
+                    judgmentText.innerText = text;
+
+                    loaderOverlay.classList.remove('show');
+                }, 500);
+            }
+
             function handleRestart() {
                 currentIndex = 0;
                 answers = new Array(30).fill(null);
@@ -675,7 +580,6 @@
                 homeSection.classList.remove('hidden');
             }
 
-            // 绑定事件
             homeStart1.addEventListener('click', goToTest);
             homeStart2.addEventListener('click', goToTest);
             prevBtn.addEventListener('click', handlePrev);
